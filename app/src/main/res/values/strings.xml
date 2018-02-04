@@ -3,4 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="search_title">Tìm kiếm</string>
+    <string name="search_hint">Nhập tên KH</string>
 </resources>
