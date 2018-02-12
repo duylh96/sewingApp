@@ -3,4 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="search_view_inset">20px</dimen>
+    <dimen name="add_screen_inset">20px</dimen>
+    <dimen name="add_screen_details_height">200dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
 </resources>

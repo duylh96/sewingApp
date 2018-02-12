@@ -24,10 +24,15 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
 
 // float search
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.github.arimorty:floatingsearchview:2.1.1'
 
 // status bar color
     compile 'com.jaeger.statusbarutil:library:1.4.0'
+
+//
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

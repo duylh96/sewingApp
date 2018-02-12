@@ -5,4 +5,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="search_title">Tìm kiếm</string>
     <string name="search_hint">Nhập tên KH</string>
+    <string name="hoten">Họ tên</string>
+    <string name="sodienthoai">Số điện thoại</string>
+    <string name="sodo">Số đo</string>
+    <string name="createNewCustomer">Tạo mới</string>
 </resources>
