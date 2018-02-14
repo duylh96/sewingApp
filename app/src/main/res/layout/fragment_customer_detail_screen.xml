@@ -1,0 +1,124 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hoangduy.sewingapp.CustomerDetailScreen$PlaceholderFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/section_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/customerAvaBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/avatar_background_height"
+                    android:background="@android:color/holo_orange_light" />
+
+                <com.github.pavlospt.roundedletterview.RoundedLetterView
+                    android:id="@+id/customerAvaFore"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/avatar_foreground_height"
+                    android:layout_centerVertical="true"
+                    app:rlv_titleSize="@dimen/avatar_foreground_height" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/section_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/section_avatar"
+                android:layout_marginTop="@dimen/margin_10">
+
+                <TextView
+                    android:id="@+id/customerNameTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/avatar_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_below="@+id/customerNameTitle"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:background="@color/light_gray" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/section_function"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/section_name">
+
+                <Button
+                    android:id="@+id/btn_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:drawableStart="@android:drawable/ic_menu_call"
+                    android:text="@string/call" />
+
+                <Button
+                    android:id="@+id/btn_textMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:drawableStart="@android:drawable/ic_menu_send"
+                    android:text="@string/message" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_below="@+id/btn_call"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:background="@color/light_gray" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/section_function"
+                android:layout_marginTop="@dimen/margin_5">
+
+                <TextView
+                    android:id="@+id/sodotitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:text="@string/details"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/add_screen_details_height"
+                    android:layout_below="@+id/sodotitle"
+                    android:hint="@string/sodo"
+                    android:inputType="textMultiLine" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/margin_10"
+        android:layout_marginEnd="@dimen/margin_10"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+</RelativeLayout>

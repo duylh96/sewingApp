@@ -38,7 +38,6 @@
             android:hint="@string/sodienthoai"
             android:inputType="textPersonName" />
 
-
         <EditText
             android:id="@+id/edt_details"
             android:layout_width="match_parent"
@@ -58,9 +57,8 @@
             android:layout_below="@id/edt_details"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/margin_10"
-            android:layout_marginLeft="@dimen/margin_5"
-            android:layout_marginRight="@dimen/margin_5"
             android:layout_marginTop="@dimen/margin_10"
             android:text="@string/createNewCustomer" />
+
     </RelativeLayout>
 </ScrollView>

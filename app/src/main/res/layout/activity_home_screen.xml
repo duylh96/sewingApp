@@ -1,37 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.arlib.floatingsearchview.FloatingSearchView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/floating_search_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:floatingSearch_close_search_on_keyboard_dismiss="true"
-    app:floatingSearch_leftActionMode="showHamburger"
-    app:floatingSearch_searchBarMarginLeft="@dimen/search_view_inset"
-    app:floatingSearch_searchBarMarginRight="@dimen/search_view_inset"
-    app:floatingSearch_searchBarMarginTop="@dimen/search_view_inset"
-    app:floatingSearch_searchHint="Search..."
-    app:floatingSearch_showSearchKey="false"
-    app:floatingSearch_suggestionsListAnimDuration="250"
     tools:context=".HomeScreen">
 
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_10"
+        android:layout_marginTop="@dimen/home_margin_top">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="50px"
-            android:layout_marginEnd="50px"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_add_white_24dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </RelativeLayout>
+            <android.support.v7.widget.CardView
+                android:id="@+id/latest_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-</com.arlib.floatingsearchview.FloatingSearchView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:text="@string/latest"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list_latest_customer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_all_customer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/latest_section"
+                android:layout_marginTop="@dimen/margin_20" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="50px"
+        android:layout_marginEnd="50px"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_add_white_24dp" />
+
+    <com.arlib.floatingsearchview.FloatingSearchView
+        android:id="@+id/floating_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:floatingSearch_close_search_on_keyboard_dismiss="true"
+        app:floatingSearch_leftActionMode="showHamburger"
+        app:floatingSearch_searchBarMarginLeft="@dimen/search_view_inset"
+        app:floatingSearch_searchBarMarginRight="@dimen/search_view_inset"
+        app:floatingSearch_searchBarMarginTop="@dimen/search_view_inset"
+        app:floatingSearch_searchHint="@string/search_title"
+        app:floatingSearch_showSearchKey="false"
+        app:floatingSearch_suggestionsListAnimDuration="250" />
+</RelativeLayout>
 

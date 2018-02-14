@@ -20,7 +20,13 @@
         </activity>
         <activity
             android:name=".CustomerAddScreen"
-            android:theme="@style/Theme.AppCompat.Light"></activity>
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".CustomerDetailScreen"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".ScheduleAddScreen"
+            android:theme="@style/Theme.AppCompat.Light" />
     </application>
 
 </manifest>

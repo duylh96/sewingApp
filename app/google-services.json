@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "533621734337",
+    "firebase_url": "https://qlmaydo.firebaseio.com",
+    "project_id": "qlmaydo",
+    "storage_bucket": "qlmaydo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533621734337:android:76d148446c7df1c1",
+        "android_client_info": {
+          "package_name": "com.hoangduy.sewingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533621734337-n9rbg20cj638jtoeh8lsq53ovmp39pc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hoangduy.sewingapp",
+            "certificate_hash": "54fb4ebb9b7df61c3350a784ad57a5ede13fab88"
+          }
+        },
+        {
+          "client_id": "533621734337-qhjl9ruc71o3hnkesoisfdgu7oj8pkj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBt_lTFjwAYRFxZNxhSt-md0wzDF1h3Io"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533621734337-qhjl9ruc71o3hnkesoisfdgu7oj8pkj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
