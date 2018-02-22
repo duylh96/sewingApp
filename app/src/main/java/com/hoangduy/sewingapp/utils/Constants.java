@@ -35,6 +35,15 @@ public class Constants {
 
     }
 
+    public static String normalizeNumber(int num) {
+        if (num < 10)
+            return "0" + num;
+        else if (num == 0)
+            return "12";
+        else
+            return String.valueOf(num);
+    }
+
     public enum MODE {
         CREATE,
         EDIT

@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,8 +22,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.pavlospt.roundedletterview.RoundedLetterView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.hoangduy.sewingapp.adapters.HistoryAdapter;
 import com.hoangduy.sewingapp.dto.Customer;
+import com.hoangduy.sewingapp.dto.History;
 import com.hoangduy.sewingapp.utils.Constants;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class CustomerDetailScreen extends AppCompatActivity {
 
@@ -120,6 +133,11 @@ public class CustomerDetailScreen extends AppCompatActivity {
         /**
          * The component for history screen
          */
+        private FloatingActionButton btn_newSchedule;
+        private RecyclerView list_history_view;
+        private List<History> historyList;
+        private HistoryAdapter historyAdapter;
+        private DatabaseReference db;
 
         public PlaceholderFragment() {
 
@@ -175,9 +193,75 @@ public class CustomerDetailScreen extends AppCompatActivity {
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_customer_history_screen, container, false);
+                    btn_newSchedule = rootView.findViewById(R.id.btn_add_new_schedule);
+                    list_history_view = rootView.findViewById(R.id.list_history);
+
+                    btn_newSchedule.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(getActivity(), ScheduleAddScreen.class);
+                            i.putExtra("MODE", Constants.MODE.CREATE);
+                            i.putExtra("CUSTOMER", customer);
+                            startActivity(i);
+                        }
+                    });
+
+
+                    //load data
+                    loadListHistory();
+
+                    historyAdapter = new HistoryAdapter(historyList, new HistoryAdapter.OnItemClickListener() {
+                        @Override
+                        public void OnItemClick(History history) {
+                            Intent i = new Intent(getActivity(), ScheduleAddScreen.class);
+                            i.putExtra("MODE", Constants.MODE.EDIT);
+                            i.putExtra("CUSTOMER", customer);
+                            i.putExtra("HISTORY", history);
+                            startActivity(i);
+                        }
+
+                        @Override
+                        public void OnItemLongClick() {
+
+                        }
+                    });
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                    layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                    list_history_view.setLayoutManager(layoutManager);
+                    list_history_view.setAdapter(historyAdapter);
+
                     break;
             }
             return rootView;
+        }
+
+        private void loadListHistory() {
+            historyList = new ArrayList<>();
+            db = FirebaseDatabase.getInstance().getReference("history");
+            db.child(customer.getName()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    historyList.clear();
+
+                    for (final DataSnapshot data : dataSnapshot.getChildren()) {
+                        HashMap<String, String> map = (HashMap<String, String>) data.getValue();
+
+                        History history = new History();
+                        history.setName(map.get("name"));
+                        history.setDate(map.get("date"));
+                        history.setDescription(map.get("description"));
+
+                        historyList.add(history);
+                    }
+
+                    historyAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
         }
 
         private void navigateToEditScreen() {

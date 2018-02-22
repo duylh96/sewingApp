@@ -17,4 +17,7 @@
     <string name="call">Gọi</string>
     <string name="message">Nhắn tin</string>
     <string name="updateCustomer">Cập nhật thông tin</string>
+    <string name="add_new_schedule_title">Thêm mới lịch hẹn</string>
+    <string name="update_customer_screen_title">Cập nhật thông tin khách hàng</string>
+    <string name="update_schedule_title">Cập nhật lịch hẹn</string>
 </resources>

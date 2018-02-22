@@ -54,6 +54,8 @@ public class CustomerAddScreen extends AppCompatActivity {
 
                 break;
             case EDIT:
+                //change default title to match screen description
+                getSupportActionBar().setTitle(R.string.update_customer_screen_title);
                 customer = (Customer) getIntent().getSerializableExtra("CUSTOMER");
                 edt_customerName.setText(customer.getName());
                 edt_customerPhone.setText(customer.getPhone());
