@@ -14,7 +14,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10">
 
             <com.github.pavlospt.roundedletterview.RoundedLetterView
                 android:id="@+id/item_customerAvatar"
@@ -32,7 +33,8 @@
                 android:layout_marginStart="@dimen/margin_10"
                 android:layout_toRightOf="@id/item_customerAvatar"
                 android:text="@string/search_title"
-                android:textSize="@dimen/title_name_size" />
+                android:textSize="@dimen/sdtitle_size"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

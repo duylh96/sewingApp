@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.hoangduy.sewingapp.R;
 import com.hoangduy.sewingapp.dto.History;
+import com.hoangduy.sewingapp.utils.Constants;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryA
     @Override
     public void onBindViewHolder(HistoryAdapterViewHolder holder, int position) {
         holder.tv_shortDescription.setText(listData.get(position).getDescription());
-        holder.tv_Date.setText(listData.get(position).getDate());
+        holder.tv_Date.setText(Constants.normalizeDate(listData.get(position).getDate()));
         holder.bind(listData.get(position), listener);
     }
 

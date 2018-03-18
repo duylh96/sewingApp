@@ -80,11 +80,11 @@ public class CustomerAddScreen extends AppCompatActivity {
             editedCustomer.setPhone(edt_customerPhone.getText().toString().trim());
             editedCustomer.setDescription(edt_customerDetails.getText().toString());
 
-            if (customer.getName() == editedCustomer.getName())
+            if (customer.getName().trim() == editedCustomer.getName().trim())
                 db.child(customer.getName()).setValue(editedCustomer);
             else {
                 db.child(customer.getName()).removeValue();
-                db.child(editedCustomer.getName()).setValue(editedCustomer);
+                db.child(customer.getName()).setValue(editedCustomer);
             }
 
             Toast.makeText(getApplicationContext(), "success!", Toast.LENGTH_SHORT).show();
@@ -117,8 +117,7 @@ public class CustomerAddScreen extends AppCompatActivity {
     }
 
     private boolean checkValid() {
-        return StringUtils.isNotEmpty(this.edt_customerName.getText().toString())
-                && StringUtils.isNumeric(this.edt_customerPhone.getText().toString());
+        return StringUtils.isNotEmpty(this.edt_customerName.getText().toString());
     }
 
     @Override

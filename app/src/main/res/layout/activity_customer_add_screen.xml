@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/add_screen_inset"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_10">
 
         <EditText
             android:id="@+id/edt_customerName"
@@ -23,7 +24,8 @@
             android:layout_marginTop="@dimen/margin_10"
             android:ems="10"
             android:hint="@string/hoten"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
 
         <EditText
             android:id="@+id/edt_phoneNumber"
@@ -36,25 +38,35 @@
             android:layout_marginTop="@dimen/margin_10"
             android:ems="10"
             android:hint="@string/sodienthoai"
-            android:inputType="textPersonName" />
+            android:inputType="numberDecimal"
+            android:text="0"
+            android:textAlignment="center" />
 
-        <EditText
-            android:id="@+id/edt_details"
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/detail_section"
             android:layout_width="match_parent"
             android:layout_height="@dimen/add_screen_details_height"
-            android:layout_below="@id/edt_phoneNumber"
-            android:layout_marginBottom="@dimen/margin_10"
-            android:layout_marginLeft="@dimen/margin_5"
-            android:layout_marginRight="@dimen/margin_5"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/sodo"
-            android:inputType="textMultiLine" />
+            android:layout_below="@id/edt_phoneNumber">
+
+            <EditText
+                android:id="@+id/edt_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginTop="@dimen/margin_10"
+                android:hint="@string/sodo"
+                android:inputType="textMultiLine"
+                android:maxLines="512"
+                android:paddingLeft="@dimen/margin_10" />
+        </android.support.v4.widget.NestedScrollView>
 
         <Button
             android:id="@+id/btn_new"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_details"
+            android:layout_below="@id/detail_section"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/margin_10"
             android:layout_marginTop="@dimen/margin_10"

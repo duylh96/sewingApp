@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:padding="@dimen/margin_10">
+
+
+        <ImageView
+            android:layout_width="@dimen/schedule_item_width"
+            android:layout_height="@dimen/schedule_item_height" />
+
+        <com.github.pavlospt.roundedletterview.RoundedLetterView
+            android:id="@+id/schedule_title_name"
+            android:layout_width="@dimen/schedule_item_width"
+            android:layout_height="@dimen/schedule_item_height"
+            app:rlv_titleSize="@dimen/schedule_item_height" />
+
+        <TextView
+            android:id="@+id/schedule_customer_name"
+            android:layout_width="@dimen/schedule_item_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/schedule_title_name"
+            android:layout_marginTop="@dimen/margin_5"
+            android:text="abc"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_name_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/schedule_date"
+            android:layout_width="@dimen/schedule_item_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/schedule_customer_name"
+            android:layout_marginTop="@dimen/margin_5"
+            android:text="20182525"
+            android:textAlignment="center"
+            android:textColor="#00ff00" />
+    </RelativeLayout>
+</RelativeLayout>

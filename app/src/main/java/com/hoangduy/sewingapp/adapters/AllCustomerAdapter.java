@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.github.pavlospt.roundedletterview.RoundedLetterView;
 import com.hoangduy.sewingapp.R;
 import com.hoangduy.sewingapp.dto.Customer;
+import com.hoangduy.sewingapp.utils.Constants;
 
 import java.util.List;
 
@@ -37,11 +38,8 @@ public class AllCustomerAdapter extends RecyclerView.Adapter<AllCustomerAdapter.
     public void onBindViewHolder(AllCustomerAdapter.AllCustomerAdapterViewHolder holder, int position) {
         String customerName = listData.get(position).getName();
         holder.customerName.setText(customerName);
-        int space_letter = customerName.lastIndexOf(" ");
-        if (space_letter > 0)
-            holder.customerAvatar.setTitleText(String.valueOf(customerName.substring(customerName.lastIndexOf(" ") + 1).charAt(0)).toUpperCase());
-        else
-            holder.customerAvatar.setTitleText(String.valueOf(customerName.charAt(0)).toUpperCase());
+        holder.customerAvatar.setBackgroundColor(Constants.randomColor());
+        holder.customerAvatar.setTitleText(String.valueOf(customerName.charAt(0)).toUpperCase());
 
         holder.bind(listData.get(position), listener);
 
@@ -55,7 +53,7 @@ public class AllCustomerAdapter extends RecyclerView.Adapter<AllCustomerAdapter.
     public interface OnItemClickListener {
         void OnItemClick(Customer customer);
 
-        void OnItemLongClick();
+        void OnItemLongClick(Customer customer);
     }
 
     public class AllCustomerAdapterViewHolder extends RecyclerView.ViewHolder {
@@ -73,6 +71,14 @@ public class AllCustomerAdapter extends RecyclerView.Adapter<AllCustomerAdapter.
                 @Override
                 public void onClick(View view) {
                     listener.OnItemClick(customer);
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    listener.OnItemLongClick(customer);
+                    return true;
                 }
             });
         }

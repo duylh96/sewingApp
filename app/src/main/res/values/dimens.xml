@@ -17,4 +17,7 @@
     <dimen name="avatar_background_height">200dp</dimen>
     <dimen name="avatar_foreground_height">100dp</dimen>
     <dimen name="sdtitle_size">20dp</dimen>
+    <dimen name="schedule_item_width">100dp</dimen>
+    <dimen name="schedule_item_height">100dp</dimen>
+    <dimen name="sdsubtitle_size">20dp</dimen>
 </resources>

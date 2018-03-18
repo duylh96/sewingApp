@@ -12,6 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:padding="@dimen/margin_10"
             android:layout_height="wrap_content">
 
             <TextView
@@ -31,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_shortDescription"
                 android:text="2018/12/12"
+                android:textSize="@dimen/sdsubtitle_size"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary" />
         </RelativeLayout>

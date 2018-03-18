@@ -45,6 +45,8 @@
                     android:id="@+id/customerNameTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/avatar_size"
                     android:textStyle="bold" />
 
@@ -67,6 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
                     android:drawableStart="@android:drawable/ic_menu_call"
                     android:text="@string/call" />
 
@@ -75,6 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="40dp"
                     android:drawableStart="@android:drawable/ic_menu_send"
                     android:text="@string/message" />
 
@@ -82,15 +86,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
                     android:layout_below="@+id/btn_call"
+                    android:layout_marginEnd="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_10"
                     android:layout_marginTop="@dimen/margin_5"
-                    android:background="@color/light_gray" />
+                    android:background="@color/dark_gray" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/section_function"
-                android:layout_marginTop="@dimen/margin_5">
+                android:layout_marginTop="@dimen/margin_5"
+                android:paddingLeft="25dp">
 
                 <TextView
                     android:id="@+id/sodotitle"
@@ -98,16 +105,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_10"
                     android:text="@string/details"
-                    android:textSize="18dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="26dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_details"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/add_screen_details_height"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/sodotitle"
                     android:hint="@string/sodo"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_details" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

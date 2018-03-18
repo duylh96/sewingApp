@@ -2,6 +2,7 @@ package com.hoangduy.sewingapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -175,11 +176,9 @@ public class CustomerDetailScreen extends AppCompatActivity {
                     //bind data
                     String Name = customer.getName();
                     customerName.setText(Name);
-                    int space_letter = Name.lastIndexOf(" ");
-                    if (space_letter > 0)
-                        avaForeGround.setTitleText(String.valueOf(Name.substring(Name.lastIndexOf(" ") + 1).charAt(0)).toUpperCase());
-                    else
-                        avaForeGround.setTitleText(String.valueOf(Name.charAt(0)).toUpperCase());
+                    avaForeGround.setTitleText(String.valueOf(Name.charAt(0)).toUpperCase());
+                    avaForeGround.setBackgroundColor(Constants.randomColor());
+                    avaBackGround.setBackgroundColor(Constants.randomColor());
 
                     customerDetail.setText(customer.getDescription());
 
@@ -187,6 +186,20 @@ public class CustomerDetailScreen extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             navigateToEditScreen();
+                        }
+                    });
+
+                    btn_call.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            callCustomer();
+                        }
+                    });
+
+                    btn_textMessage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            textCustomer();
                         }
                     });
 
@@ -233,6 +246,24 @@ public class CustomerDetailScreen extends AppCompatActivity {
                     break;
             }
             return rootView;
+        }
+
+        private void textCustomer() {
+            if (!customer.getPhone().isEmpty()
+                    && customer.getPhone().length() >= 10) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + customer.getPhone().toString().trim()));
+                intent.putExtra("sms_body", "");
+                startActivity(intent);
+            }
+        }
+
+        private void callCustomer() {
+            if (!customer.getPhone().isEmpty()
+                    && customer.getPhone().length() >= 10) {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:" + customer.getPhone().toString().trim()));
+                startActivity(intent);
+            }
         }
 
         private void loadListHistory() {
